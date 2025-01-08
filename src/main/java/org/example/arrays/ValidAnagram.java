@@ -36,26 +36,31 @@ We can just consider maintaining the frequency of each character.
  Then, we can check whether the frequency of each character in string s is equal to that in string t and vice versa.
 */
 
+import java.util.Arrays;
+import java.util.HashMap;
+
 public class ValidAnagram {
 
-    public static boolean isAnagram(String s, String m){
-        boolean resp=true;
-
-        //Brute Force Solution
+    //Sorting Solution
+    //Time Complexity: O(n log n+ m log m)
+    //Space Complexity: O(1) or O(n + m) depending on the sorting algorithm.
+    //Where n is the length of the string s and m is the length of the string t.
+    public static boolean isAnagram(String s, String t) {
+        boolean resp = true;
 
         //if the length are not equal cant be anagrams
-        if(s.length()!=m.length()){
+        if (s.length() != t.length()) {
             return false;
         }
         //Sort
         char[] arrayS = s.toCharArray();
         char[] sortedArrayS = bubbleSort(arrayS);
-        char[] arrayM = m.toCharArray();
+        char[] arrayM = t.toCharArray();
         char[] sortedArrayM = bubbleSort(arrayM);
 
         //Compare each character
-        for (int i=0; i<arrayS.length-1;i++){
-            if(sortedArrayS[i]!= sortedArrayM[i]){
+        for (int i = 0; i < arrayS.length - 1; i++) {
+            if (sortedArrayS[i] != sortedArrayM[i]) {
                 resp = false;
             }
         }
@@ -63,39 +68,74 @@ public class ValidAnagram {
         return resp;
     }
 
-    public static char[] bubbleSort(char[] array){
-        for(int i=0; i<array.length-1; i++){
+    //Using Bubble Sort to practice the algorithm
+    public static char[] bubbleSort(char[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
             boolean isSwapped = false;
-            for(int j=0; j<array.length-i-1;j++){
-                if(array[j]>array[j+1]){
+            for (int j = 0; j < array.length - i - 1; j++) {
+                if (array[j] > array[j + 1]) {
                     char temp = array[j];
-                    array[j] = array[j+1];
-                    array[j+1] = temp;
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
                     isSwapped = true;
                 }
             }
-            if(!isSwapped){
+            if (!isSwapped) {
                 break;
             }
         }
         return array;
     }
 
-    public static int[] bubbleSort(int[] array){
-        for(int i=0; i<array.length-1; i++){
-            boolean isSwapped = false;
-            for(int j=0; j<array.length-i-1;j++){
-                if(array[j]>array[j+1]){
-                    int temp = array[j];
-                    array[j] = array[j+1];
-                    array[j+1] = temp;
-                    isSwapped = true;
-                }
-            }
-            if(!isSwapped){
-                 break;
+    //Sorting Solution using Arrays.sort
+    public static boolean isAnagram2(String s, String t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+
+        char[] sSort = s.toCharArray();
+        char[] tSort = t.toCharArray();
+        Arrays.sort(sSort);
+        Arrays.sort(tSort);
+        return Arrays.equals(sSort, tSort);
+    }
+
+    //Hash Table Solution
+    //Time Complexity: O(n + m)
+    //Space Complexity: O(1)
+    public static boolean isAnagramHashTable(String s, String t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+
+        HashMap<Character, Integer> sMap = new HashMap<>();
+        HashMap<Character, Integer> tMap = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            sMap.put(s.charAt(i), sMap.getOrDefault(s.charAt(i), 0) + 1);
+            tMap.put(t.charAt(i), tMap.getOrDefault(t.charAt(i), 0) + 1);
+        }
+        return sMap.equals(tMap);
+    }
+
+    //Hash Table Optimal Solution
+    //Time Complexity: O(n + m)
+    //Space Complexity: O(1)  since we have at most 26 different characters
+    public static boolean isAnagramOptimized(String s, String t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+
+        int[] count = new int[26];
+        for (int i = 0; i < s.length(); i++) {
+            count[s.charAt(i) - 'a']++;
+            count[t.charAt(i) - 'a']--;
+        }
+
+        for (int val : count) {
+            if (val != 0) {
+                return false;
             }
         }
-        return array;
+        return true;
     }
 }
