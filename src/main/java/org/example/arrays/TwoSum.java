@@ -32,8 +32,14 @@ Constraints:
 -10,000,000 <= target <= 10,000,000
  */
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class TwoSum {
 
+    //My Solution - Brute Force
+    //Time complexity: O(n^2)
+    //Space complexity: O(1)
     public static int[] twoSum(int[] nums,int target){
         int[] indexes = {-1,-1};
 
@@ -52,6 +58,48 @@ public class TwoSum {
             }
         }
         return indexes;
-
     }
+
+    //Hash Map Solution (Two-pass)
+    //Time complexity: O(n)
+    //Space complexity: O(n)
+    public int[] twoSum2(int[] nums, int target) {
+        Map<Integer, Integer> indices = new HashMap<>();  // val -> index
+
+        for (int i = 0; i < nums.length; i++) {
+            indices.put(nums[i], i);
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            int diff = target - nums[i];
+            if (indices.containsKey(diff) && indices.get(diff) != i) {
+                return new int[]{i, indices.get(diff)};
+            }
+        }
+
+        return new int[0];
+    }
+
+    //Hash Map Solution (One-pass)
+    //Time complexity: O(n)
+    //Space complexity: O(n)
+    public int[] twoSum3(int[] nums, int target) {
+        HashMap<Integer, Integer> prevMap = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            int num = nums[i];
+            int diff = target - num;
+
+            if (prevMap.containsKey(diff)) {
+                return new int[] { prevMap.get(diff), i };
+            }
+
+            prevMap.put(num, i);
+        }
+
+        return new int[] {};
+    }
+
+
+
 }
