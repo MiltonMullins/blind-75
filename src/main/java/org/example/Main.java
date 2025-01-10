@@ -1,12 +1,12 @@
 package org.example;
 
-import org.example.arrays.ContainsDuplicate;
-import org.example.arrays.TwoSum;
-import org.example.arrays.ValidAnagram;
+import org.example.arrays.containsDuplicate;
+import org.example.arrays.twoSum;
+import org.example.arrays.validAnagram;
 import org.example.arrays.groupAnagrams;
-import org.example.slidingWindow.SlidingWindow;
-import org.example.stack.ValidParentheses;
-import org.example.twoPointers.ValidPalindrome;
+import org.example.slidingWindow.slidingWindow;
+import org.example.stack.validParentheses;
+import org.example.twoPointers.validPalindrome;
 
 import java.util.Arrays;
 
@@ -15,13 +15,13 @@ public class Main {
 
         //Contains Duplicate
         int[] nums = {1, 2, 3, 4, 5};
-        System.out.println("Contains Duplicate: " + ContainsDuplicate.hasDuplicate(nums));
+        System.out.println("Contains Duplicate: " + containsDuplicate.hasDuplicate(nums));
 
 
         //Valid Anagram
         String s = "racecarcarracecarracecarracecarrace";
         String m = "carraceracecarracecarracecarracecar";
-        System.out.println("Valid Anagram: " + ValidAnagram.isAnagram(s, m));
+        System.out.println("Valid Anagram: " + validAnagram.isAnagram(s, m));
         //String test = "zxyfba";
         //char[] testChar = test.toCharArray();
         //int[] testInt = {4,3,2,5,1};
@@ -35,18 +35,18 @@ public class Main {
 
         //Two Sum
         int[] nums2 = {5, 5};
-        System.out.println("Two Sum: " + Arrays.toString(TwoSum.twoSum(nums2, 10)));
+        System.out.println("Two Sum: " + Arrays.toString(twoSum.twoSum(nums2, 10)));
 
         //Valid Palindrome
-        System.out.println("Valid Palindrome: " + ValidPalindrome.isPalindrome("tac cat"));
+        System.out.println("Valid Palindrome: " + validPalindrome.isPalindrome("tac cat"));
 
         //Slide Window
         int[] prices = {10, 7, 5, 2};
-        System.out.println("Max profit: " + SlidingWindow.maxProfit2(prices));
+        System.out.println("Max profit: " + slidingWindow.maxProfit2(prices));
 
         //Valid Parentheses
         String str = "((])";
-        System.out.println("Is Valid Parentheses: " + ValidParentheses.isValid(str));
+        System.out.println("Is Valid Parentheses: " + validParentheses.isValid(str));
 
         //Group Anagrams
         String[] strs = {"hat", "act", "pots", "tops", "cat", "stop"};

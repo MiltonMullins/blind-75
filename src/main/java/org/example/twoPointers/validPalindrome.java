@@ -1,9 +1,5 @@
 package org.example.twoPointers;
 
-import com.sun.xml.internal.ws.util.StringUtils;
-
-import java.util.Arrays;
-
 /*
 Given a string s, return true if it is a palindrome, otherwise return false.
 
@@ -28,7 +24,7 @@ Constraints:
 1 <= s.length <= 1000
 s is made up of only printable ASCII characters.
  */
-public class ValidPalindrome {
+public class validPalindrome {
 
     public static boolean isPalindrome(String s){
         boolean resp = true;

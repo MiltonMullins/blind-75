@@ -21,7 +21,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ContainsDuplicate {
+public class containsDuplicate {
 
     //Sorting Solution
     //Time Complexity: O(nlogn)
