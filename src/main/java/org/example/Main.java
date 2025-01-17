@@ -4,6 +4,7 @@ import org.example.arrays.ContainsDuplicate;
 import org.example.arrays.TwoSum;
 import org.example.arrays.ValidAnagram;
 import org.example.arrays.CroupAnagrams;
+import org.example.linkedList.ReverseLinkedList;
 import org.example.slidingWindow.SlidingWindow;
 import org.example.stack.ValidParentheses;
 import org.example.twoPointers.ValidPalindrome;
@@ -51,6 +52,16 @@ public class Main {
         //Group Anagrams
         String[] strs = {"hat", "act", "pots", "tops", "cat", "stop"};
         System.out.println("Has Group of Anagrams: " + CroupAnagrams.hasGroupAnagrams(strs));
+
+
+        //Reverse LinkedList
+        ReverseLinkedList.ListNode fourth = new ReverseLinkedList.ListNode(4);
+        ReverseLinkedList.ListNode third = new ReverseLinkedList.ListNode(3, fourth);
+        ReverseLinkedList.ListNode second = new ReverseLinkedList.ListNode(2, third);
+        ReverseLinkedList.ListNode head = new ReverseLinkedList.ListNode(1, second);
+
+        System.out.println("Reverse LinkedList: " + ReverseLinkedList.reverseLinkedList(head));
+
 
     }
 }
