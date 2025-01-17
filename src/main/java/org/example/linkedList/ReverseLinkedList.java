@@ -1,7 +1,6 @@
 package org.example.linkedList;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 /*
 Given the beginning of a singly linked list head, reverse the list, and return the new beginning of the list.
@@ -34,12 +33,12 @@ public class ReverseLinkedList {
         ArrayList returnArray = new ArrayList();
         ArrayList list2 = new ArrayList();
 
-        while (head.hasNext()){
+        while (head.hasNext()) {
             list2.add(head.val);
             head = head.next;
         }
         returnArray.add(head.val);
-        for (int i = list2.size()-1; i >= 0 ; i--) {
+        for (int i = list2.size() - 1; i >= 0; i--) {
             returnArray.add(list2.get(i));
         }
 
@@ -63,6 +62,7 @@ public class ReverseLinkedList {
 
         return newHead;
     }
+
     //Iteration Solution - Two Pointers
     //Time complexity: O(n)
     //Space complexity: O(1)
@@ -95,7 +95,7 @@ public class ReverseLinkedList {
             this.next = next;
         }
 
-        boolean hasNext(){
+        boolean hasNext() {
             return this.next != null;
         }
     }
