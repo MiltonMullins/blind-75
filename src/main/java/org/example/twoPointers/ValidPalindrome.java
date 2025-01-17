@@ -24,7 +24,7 @@ Constraints:
 1 <= s.length <= 1000
 s is made up of only printable ASCII characters.
  */
-public class validPalindrome {
+public class ValidPalindrome {
 
     public static boolean isPalindrome(String s){
         boolean resp = true;

@@ -35,7 +35,7 @@ Constraints:
 import java.util.HashMap;
 import java.util.Map;
 
-public class twoSum {
+public class TwoSum {
 
     //My Solution - Brute Force
     //Time complexity: O(n^2)

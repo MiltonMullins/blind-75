@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class groupAnagrams {
+public class CroupAnagrams {
 
     //Brute Force Solution made by Me
     //Time Complexity: O(n ^2)

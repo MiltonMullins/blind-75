@@ -35,7 +35,7 @@ Constraints:
 
 import java.util.Stack;
 
-public class validParentheses {
+public class ValidParentheses {
 
     //Two Pointers Solution
     public static boolean isValid(String s) {

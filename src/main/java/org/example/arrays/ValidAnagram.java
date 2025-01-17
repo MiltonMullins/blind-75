@@ -39,7 +39,7 @@ We can just consider maintaining the frequency of each character.
 import java.util.Arrays;
 import java.util.HashMap;
 
-public class validAnagram {
+public class ValidAnagram {
 
     //Sorting Solution
     //Time Complexity: O(n log n+ m log m)

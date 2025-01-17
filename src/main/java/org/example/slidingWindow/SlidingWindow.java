@@ -30,7 +30,7 @@ Constraints:
 import java.util.Arrays;
 import java.util.OptionalInt;
 
-public class slidingWindow {
+public class SlidingWindow {
 
     public static int maxProfit(int[] prices) {
         int maxProfit = -1;
