@@ -3,7 +3,7 @@ package org.example;
 import org.example.arrays.ContainsDuplicate;
 import org.example.arrays.TwoSum;
 import org.example.arrays.ValidAnagram;
-import org.example.arrays.CroupAnagrams;
+import org.example.arrays.GroupAnagrams;
 import org.example.linkedList.ReverseLinkedList;
 import org.example.slidingWindow.SlidingWindow;
 import org.example.stack.ValidParentheses;
@@ -51,7 +51,7 @@ public class Main {
 
         //Group Anagrams
         String[] strs = {"hat", "act", "pots", "tops", "cat", "stop"};
-        System.out.println("Has Group of Anagrams: " + CroupAnagrams.hasGroupAnagrams(strs));
+        System.out.println("Has Group of Anagrams: " + GroupAnagrams.hasGroupAnagrams(strs));
 
 
         //Reverse LinkedList

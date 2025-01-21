@@ -27,11 +27,9 @@ Constraints:
 strs[i] is made up of lowercase English letters.
  */
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
-public class CroupAnagrams {
+public class GroupAnagrams {
 
     //Brute Force Solution made by Me
     //Time Complexity: O(n ^2)
@@ -66,4 +64,38 @@ public class CroupAnagrams {
         }
         return result;
     }
+
+    //Sorting Solution
+    //Time Complexity: O(n * m log m)
+    //Space Complexity: O(m*n)
+    public List<List<String>> groupAnagrams(String[] strs) {
+        Map<String, List<String>> res = new HashMap<>();
+        for (String s : strs) {
+            char[] charArray = s.toCharArray();
+            Arrays.sort(charArray);
+            String sortedS = new String(charArray);
+            res.putIfAbsent(sortedS, new ArrayList<>());
+            res.get(sortedS).add(s);
+        }
+        return new ArrayList<>(res.values());
+    }
+
+    //Hash Table Solution
+    //Time Complexity: O(n * m)
+    //Space Complexity: O(m)
+    public List<List<String>> groupAnagrams2(String[] strs) {
+        Map<String, List<String>> res = new HashMap<>();
+        for (String s : strs) {
+            int[] count = new int[26];
+            for (char c : s.toCharArray()) {
+                count[c - 'a']++;
+            }
+            String key = Arrays.toString(count);
+            res.putIfAbsent(key, new ArrayList<>());
+            res.get(key).add(s);
+        }
+        return new ArrayList<>(res.values());
+    }
+
+
 }
