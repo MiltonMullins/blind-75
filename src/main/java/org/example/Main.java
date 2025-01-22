@@ -1,12 +1,13 @@
 package org.example;
 
 import org.example.arrays.ContainsDuplicate;
+import org.example.arrays.GroupAnagrams;
 import org.example.arrays.TwoSum;
 import org.example.arrays.ValidAnagram;
-import org.example.arrays.GroupAnagrams;
 import org.example.linkedList.ReverseLinkedList;
 import org.example.slidingWindow.SlidingWindow;
 import org.example.stack.ValidParentheses;
+import org.example.trees.invertBinaryTree;
 import org.example.twoPointers.ValidPalindrome;
 
 import java.util.Arrays;
@@ -62,6 +63,17 @@ public class Main {
 
         System.out.println("Reverse LinkedList: " + ReverseLinkedList.reverseLinkedList(head));
 
+        //Invert Binary Tree
+        invertBinaryTree.TreeNode childrenLeft11 = new invertBinaryTree.TreeNode(4);
+        invertBinaryTree.TreeNode childrenLeft12 = new invertBinaryTree.TreeNode(5);
+        invertBinaryTree.TreeNode childrenLeft1 = new invertBinaryTree.TreeNode(2, childrenLeft11, childrenLeft12);
+        invertBinaryTree.TreeNode childrenRight11 = new invertBinaryTree.TreeNode(6);
+        invertBinaryTree.TreeNode childrenRight12 = new invertBinaryTree.TreeNode(7);
+        invertBinaryTree.TreeNode childrenRight1 = new invertBinaryTree.TreeNode(3, childrenRight11, childrenRight12);
+        invertBinaryTree.TreeNode root = new invertBinaryTree.TreeNode(1, childrenLeft1, childrenRight1);
 
+        System.out.println("Binary Tree: " + root.toString());
+        invertBinaryTree.TreeNode invertedTree = invertBinaryTree.invertTree(root);
+        System.out.println("Invert Binary Tree: " + invertedTree);
     }
 }
