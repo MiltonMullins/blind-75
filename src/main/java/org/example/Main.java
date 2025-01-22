@@ -7,10 +7,14 @@ import org.example.arrays.ValidAnagram;
 import org.example.linkedList.ReverseLinkedList;
 import org.example.slidingWindow.SlidingWindow;
 import org.example.stack.ValidParentheses;
+import org.example.trees.TreeNodeImpl;
 import org.example.trees.invertBinaryTree;
 import org.example.twoPointers.ValidPalindrome;
 
 import java.util.Arrays;
+
+import static org.example.trees.invertBinaryTree.invertTree;
+import static org.example.trees.sameTree.isSameTree;
 
 public class Main {
     public static void main(String[] args) {
@@ -64,16 +68,28 @@ public class Main {
         System.out.println("Reverse LinkedList: " + ReverseLinkedList.reverseLinkedList(head));
 
         //Invert Binary Tree
-        invertBinaryTree.TreeNode childrenLeft11 = new invertBinaryTree.TreeNode(4);
-        invertBinaryTree.TreeNode childrenLeft12 = new invertBinaryTree.TreeNode(5);
-        invertBinaryTree.TreeNode childrenLeft1 = new invertBinaryTree.TreeNode(2, childrenLeft11, childrenLeft12);
-        invertBinaryTree.TreeNode childrenRight11 = new invertBinaryTree.TreeNode(6);
-        invertBinaryTree.TreeNode childrenRight12 = new invertBinaryTree.TreeNode(7);
-        invertBinaryTree.TreeNode childrenRight1 = new invertBinaryTree.TreeNode(3, childrenRight11, childrenRight12);
-        invertBinaryTree.TreeNode root = new invertBinaryTree.TreeNode(1, childrenLeft1, childrenRight1);
+        TreeNodeImpl childrenLeft11 = new TreeNodeImpl(4);
+        TreeNodeImpl childrenLeft12 = new TreeNodeImpl(5);
+        TreeNodeImpl childrenLeft1 = new TreeNodeImpl(2, childrenLeft11, childrenLeft12);
+        TreeNodeImpl childrenRight11 = new TreeNodeImpl(6);
+        TreeNodeImpl childrenRight12 = new TreeNodeImpl(7);
+        TreeNodeImpl childrenRight1 = new TreeNodeImpl(3, childrenRight11, childrenRight12);
+        TreeNodeImpl root = new TreeNodeImpl(1, childrenLeft1, childrenRight1);
 
         System.out.println("Binary Tree: " + root.toString());
-        invertBinaryTree.TreeNode invertedTree = invertBinaryTree.invertTree(root);
+        TreeNodeImpl invertedTree = invertTree(root);
         System.out.println("Invert Binary Tree: " + invertedTree);
+
+        //Same Tree
+        TreeNodeImpl childrenLeft21 = new TreeNodeImpl(4);
+        TreeNodeImpl childrenLeft22 = new TreeNodeImpl(5);
+        TreeNodeImpl childrenLeft2 = new TreeNodeImpl(2, childrenLeft21, childrenLeft22);
+        System.out.println("Is Same Tree: " + isSameTree(childrenLeft1, childrenLeft2));
+
+        //Is SubTree
+        TreeNodeImpl childrenLeft23 = new TreeNodeImpl(5);
+        TreeNodeImpl childrenRight23 = new TreeNodeImpl(4);
+        TreeNodeImpl childrenLeft3 = new TreeNodeImpl(2, childrenLeft23, childrenRight23);
+        System.out.println("Is SubTree: " + org.example.trees.isSubTree.isSubtree(root, childrenLeft3));
     }
 }
